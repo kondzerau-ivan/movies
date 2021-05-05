@@ -7,14 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media screen and (max-width: 425px) {
+  .input-field {
+    flex-direction: column;
+  }
+
+  .input-field .btn {
+    margin-top: 2rem;
+  }
+}
+
 .content {
-  min-height: calc(100vh - 305px);
+  min-height: calc(100vh - 200px - 64px);
 }
 
 .movies {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
 }
 
 .input-field input[type=text] {
@@ -26,4 +41,37 @@ body {
 .input-field input[type=text]:not(.browser-default):focus:not([readonly]) {
   border-bottom: 1px solid #1a237e;
   box-shadow: 0 1px 0 0 #1a237e;
+}
+
+.input-field .btn {
+  margin-left: 2rem;
+}
+
+.label-type {
+  display: flex;
+  justify-content: center;
+}
+
+.label-type .radio + .span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: .5rem;
+  width: auto;
+  height: auto;
+  border-radius: 2px;
+}
+
+.label-type .radio + .span::before,
+.label-type .radio + .span::after {
+  top: 50%;
+  left: -2rem;
+  transform: translateY(-60%);
+}
+
+.label-type .radio:checked + .span::after {
+  transform: translateY(-60%) scale(0.5);
+}
+
+.label-type .radio:focus + .span {
+  box-shadow: 0px 0px 0px 3px #2bbbad;
 }
