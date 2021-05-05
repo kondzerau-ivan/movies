@@ -3,18 +3,31 @@ import React from "react";
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.inputTextRef = React.createRef();
+
+    this.state = {
+      search: ''
+    }
+
+    this.handleKey = this.handleKey.bind(this);
   }
 
-  componentDidMount() {
-    this.inputTextRef.current.focus();
+  handleKey(event) {
+    if(event.key === 'Enter') {
+      this.props.searchMovies(this.state.search);
+    }
   }
 
   render() {
     return (
       <div className="row">
         <div className="input-field col s12">
-          <input ref={this.inputTextRef} type="text" placeholder="Movie you are looking for" />
+          <input type="text"
+                 placeholder="Movie you are looking for"
+                 value={this.state.search}
+                 {this.props.autofocus ? "autoFocus" : ""}
+                 onChange={(event) => {this.setState({search: event.target.value})}}
+                 onKeyDown={this.handleKey}
+          />
         </div>
       </div>
     );

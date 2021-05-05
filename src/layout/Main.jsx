@@ -11,12 +11,14 @@ class Main extends React.Component {
     }
   }
 
-  focusInputText() {
-    this.inputTextRef.current.focus();
-  }
-
   componentDidMount() {
     fetch('http://www.omdbapi.com/?apikey=f79ef681&s=matrix')
+      .then(response => response.json())
+      .then(data => this.setState({movies: data.Search}));
+  }
+
+  searchMovies(movie) {
+    fetch(`http://www.omdbapi.com/?apikey=f79ef681&s=${movie}`)
       .then(response => response.json())
       .then(data => this.setState({movies: data.Search}));
   }
@@ -27,7 +29,7 @@ class Main extends React.Component {
       <main>
         <section>
           <div className="container content">
-            <Search />
+            <Search searchMovies={this.searchMovies} autofocus />
             {movies.length
               ? <Movies movies={movies} />
               : <Preloader />
