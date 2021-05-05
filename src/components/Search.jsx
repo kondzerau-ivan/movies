@@ -24,7 +24,7 @@ class Search extends React.Component {
           <input type="text"
                  placeholder="Movie you are looking for"
                  value={this.state.search}
-                 {this.props.autofocus ? "autoFocus" : ""}
+                 autoFocus={this.props.autofocus}
                  onChange={(event) => {this.setState({search: event.target.value})}}
                  onKeyDown={this.handleKey}
           />

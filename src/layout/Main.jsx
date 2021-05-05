@@ -6,9 +6,12 @@ import {Preloader} from "../components/Preloader";
 class Main extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       movies: [],
     }
+
+    this.searchMovies = this.searchMovies.bind(this);
   }
 
   componentDidMount() {
