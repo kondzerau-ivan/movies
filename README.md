@@ -1,6 +1,6 @@
 # <a href="" target="_blank">Movie portfolio project</a> #
 
-**Created with React library and omdbapi.com API.**
+**Created with React library, Materialize and omdbapi.com API.**
 
 ## Features ##
 
