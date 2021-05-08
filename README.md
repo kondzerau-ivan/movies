@@ -1,4 +1,4 @@
-# <a href="" target="_blank">Movie portfolio project</a> #
+# [Movie portfolio project](kondzerau-ivan.github.io/movies/ "View Movie app!") #
 
 **Created with React library, Materialize and omdbapi.com API.**
 
