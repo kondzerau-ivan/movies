@@ -3,6 +3,8 @@ import {Movies} from "../components/Movies";
 import {Search} from "../components/Search";
 import {Preloader} from "../components/Preloader";
 
+const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -14,14 +16,8 @@ class Main extends React.Component {
     this.searchMovies = this.searchMovies.bind(this);
   }
 
-  componentDidMount() {
-    fetch('http://www.omdbapi.com/?apikey=f79ef681&s=matrix')
-      .then(response => response.json())
-      .then(data => this.setState({movies: data.Search}));
-  }
-
-  searchMovies(movie) {
-    fetch(`http://www.omdbapi.com/?apikey=f79ef681&s=${movie}`)
+  searchMovies(movie, movieType = 'all') {
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}${movieType !== 'all' ? `&type=${movieType}` : ''}`)
       .then(response => response.json())
       .then(data => this.setState({movies: data.Search}));
   }

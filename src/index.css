@@ -72,6 +72,12 @@ body {
   transform: translateY(-60%) scale(0.5);
 }
 
+.label-type .radio:hover + .span,
 .label-type .radio:focus + .span {
   box-shadow: 0px 0px 0px 3px #2bbbad;
+}
+
+.label-type .radio:focus + .span::after,
+.label-type:hover .radio + .span::after {
+  border-color: #2bbbad;
 }
