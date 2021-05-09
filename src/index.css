@@ -18,7 +18,15 @@ body {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   min-height: calc(100vh - 200px - 64px);
+}
+
+.no-movies {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .movies {

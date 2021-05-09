@@ -5,7 +5,7 @@ function Footer () {
         <div className="row center-align">
             <h5 className="white-text">Simple Portfolio project created with React library.</h5>
             <p className="grey-text text-lighten-4">
-              Visit my <a className="grey-text text-lighten-4 btn" href="#">Repo</a> on GitHub.
+              Visit my <a className="grey-text text-lighten-4 btn" href="https://github.com/kondzerau-ivan/movies" target="_blank">Repo</a> on GitHub.
             </p>
         </div>
       </div>
