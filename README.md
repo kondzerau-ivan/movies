@@ -1,4 +1,4 @@
-# [Movie portfolio project](kondzerau-ivan.github.io/movies/ "View Movie app!") #
+# [Movie portfolio project](https://kondzerau-ivan.github.io/movies/ "View Movie app!") #
 
 **Created with React library, Materialize and omdbapi.com API.**
 
