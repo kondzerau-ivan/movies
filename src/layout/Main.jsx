@@ -3,8 +3,6 @@ import Movies  from "../components/Movies";
 import Spinner from "../components/Spinner";
 import Search from "../components/Search";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-
 export default class Main extends React.Component {
   state = {
     movies: [],
@@ -12,14 +10,14 @@ export default class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=avengers`)
+    fetch(`https://www.omdbapi.com/?apikey=a8c73077&s=avengers`)
       .then(response => response.json())
       .then(data => this.setState({movies: data.Search, loading: false}));
   }
 
   searchMovies = (str, type = 'all') => {
     this.setState({loading: true});
-    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+    fetch(`https://www.omdbapi.com/?apikey=a8c73077&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
       .then(response => response.json())
       .then(data => this.setState({movies: data.Search, loading: false}));
   }
