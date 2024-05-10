@@ -22,7 +22,10 @@ export default function Movie(props) {
           {title}
         </h5>
         <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-          {year} - {type}
+          {year}
+        </p>
+        <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
+          {type}
         </p>
       </div>
     </div>
