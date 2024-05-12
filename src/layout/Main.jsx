@@ -1,43 +1,42 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Movies  from "../components/Movies";
 import Spinner from "../components/Spinner";
 import Search from "../components/Search";
 
-export default class Main extends React.Component {
-  state = {
-    movies: [],
-    loading: true
-  }
+export default function Main() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setloading] = useState(true);
 
-  componentDidMount() {
-    fetch(`https://www.omdbapi.com/?apikey=a8c73077&s=avengers`)
-      .then(response => response.json())
-      .then(data => this.setState({movies: data.Search, loading: false}));
-  }
-
-  searchMovies = (str, type = 'all') => {
-    this.setState({loading: true});
+  const searchMovies = (str, type = 'all') => {
+    setloading(true);
     fetch(`https://www.omdbapi.com/?apikey=a8c73077&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
       .then(response => response.json())
-      .then(data => this.setState({movies: data.Search, loading: false}));
+      .then(data => {
+        setMovies(data.Search);
+        setloading(false);
+      })
   }
 
-  render() {
-    const {movies, loading} = this.state;
+  useEffect(() => {
+    fetch(`https://www.omdbapi.com/?apikey=a8c73077&s=avengers`)
+    .then(response => response.json())
+    .then(data => {
+      setMovies(data.Search);
+      setloading(false);
+    })
+  }, [])
 
-    return(
-      <main>
-        <div className="container mx-auto p-6 pb-44">
-          <Search searchMovies={this.searchMovies} />
-          {
-            loading ?
-            <Spinner /> :
-            <Movies movies={movies} />
-          }
-          
-        </div>
-      </main>
-    );
-  };
-
+  return(
+    <main>
+      <div className="container mx-auto p-6 pb-44">
+        <Search searchMovies={searchMovies} />
+        {
+          loading ?
+          <Spinner /> :
+          <Movies movies={movies} />
+        }
+        
+      </div>
+    </main>
+  );
 }
