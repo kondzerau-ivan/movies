@@ -63,7 +63,7 @@ export default function Search(props) {
               id="all"
               data-type="all"
               onChange={handleFilter}
-              checked={setType("all")}
+              checked={type === "all"}
             />
             <span className="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
               <svg
@@ -95,7 +95,7 @@ export default function Search(props) {
               id="movie"
               data-type="movie"
               onChange={handleFilter}
-              checked={setType("movie")}
+              checked={type === "movie"}
             />
             <span className="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
               <svg
@@ -127,7 +127,7 @@ export default function Search(props) {
               id="series"
               data-type="series"
               onChange={handleFilter}
-              checked={setType("series")}
+              checked={type === "series"}
             />
             <span className="absolute text-gray-900 transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
               <svg
